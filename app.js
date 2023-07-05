@@ -13,7 +13,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // solve CORS
-app.use(cors({credentials: true, origin: ["http://localhost:3000", "http://localhost:5000"]}))
+app.use(
+  cors({
+    credentials: true,
+    origin: ["http://localhost:3000", "http://orangerie.com.br"],
+  })
+);
 
 // Upload directory
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
@@ -27,5 +32,5 @@ const router = require("./routes/Router");
 app.use(router);
 
 app.listen(port, () => {
-    console.log(`Bippp, rodando em ${port} com sucesso`);
-})
+  console.log(`Bippp, rodando em ${port} com sucesso`);
+});
