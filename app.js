@@ -17,12 +17,7 @@ const app = express();
 // );
 
 // solve CORS
-app.use(
-  cors({
-    credentials: true,
-    origin: "*",
-  })
-);
+app.use(cors());
 
 // config JSON and form data response (para receber as imagens tbm)
 app.use(express.json());
