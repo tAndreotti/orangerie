@@ -8,17 +8,25 @@ const port = process.env.PORT;
 
 const app = express();
 
-// config JSON and form data response (para receber as imagens tbm)
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+// // solve CORS
+// app.use(
+//   cors({
+//     credentials: true,
+//     origin: ["http://localhost:3000", "http://orangerie.com.br"],
+//   })
+// );
 
 // solve CORS
 app.use(
   cors({
     credentials: true,
-    origin: ["http://localhost:3000", "http://orangerie.com.br"],
+    origin: "*",
   })
 );
+
+// config JSON and form data response (para receber as imagens tbm)
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // Upload directory
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
