@@ -22,7 +22,10 @@ app.use(cors());
 
 app.use(
   helmet.contentSecurityPolicy({
-    useDefaults: true,
+    directives: {
+      defaultSrc: ["'self'"],
+      imgSrc: ["'self'", "*"],
+    },
   })
 );
 

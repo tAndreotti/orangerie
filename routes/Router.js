@@ -6,7 +6,7 @@ router.use("/api/photos", require("./PhotoRoutes"));
 
 // text route
 router.get("/", (req, res) => {
-    res.send("API runfando");
+  res.send("API runfando atualizada");
 });
 
 module.exports = router;
