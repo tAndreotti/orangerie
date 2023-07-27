@@ -9,15 +9,6 @@ const port = process.env.PORT;
 
 const app = express();
 
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'"],
-      imgSrc: ["'self'", "*"],
-    },
-  })
-);
-
 // // solve CORS
 // app.use(
 //   cors({
@@ -28,6 +19,15 @@ app.use(
 
 // solve CORS
 app.use(cors());
+
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      imgSrc: ["'self'", "*"],
+    },
+  })
+);
 
 // config JSON and form data response (para receber as imagens tbm)
 app.use(express.json());
